@@ -23,12 +23,19 @@
                             <thead>
                                 <th>ID</th>
                                 <th>Title</th>
+                                <th></th>
                             </thead>
                             <tbody>
                                 <?php foreach($libraries as $library): ?>
                                     <tr class="">
                                         <td>{{$library->id}}</td>
                                         <td>{{$library->name}}</td>
+                                        <td>
+                                            <form action="borrow" method="get">
+                                                <input type="submit" value="borrow" />
+                                                <input type="hidden" name="id" value="{{$library->id}}" />
+                                            </form>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

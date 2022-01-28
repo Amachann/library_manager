@@ -16,5 +16,9 @@ Route::get('/', function () {
 });
 // 図書一覧の表示
 Route::get("library/index", "libraryController@index");
+//貸し出しフォーム
+Route::get("library/borrow", "libraryController@borrowingForm");
+//貸し出しフォーム
+Route::post("borrow", "libraryController@borrow");
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

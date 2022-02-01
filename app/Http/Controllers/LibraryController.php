@@ -42,9 +42,26 @@ class LibraryController extends Controller
         $log = new Log();
         $log->user_id = Auth::id();
         $log->library_id = $request->id;
-        $log->ret_date = Carbon::now();
+        $log->rent_date = Carbon::now();
         $log->return_due_date = $request->return_due_date;
         $log->return_date = null;
+        $log->save();
+
+        return redirect("library/index");
+    }
+
+    public function returnBook(Request $request)
+    {
+        $library = Library::find($request->id);
+        $library->user_id = 0;
+        $library->save();
+
+        $logQuery = Log::query();
+        $logQuery->where("library_id", $request->id);
+        $logQuery->where("user_id", Auth::id());
+        $logQuery->orderBy("rent_date", "desc");
+        $log = $logQuery->first();
+        $log->return_date = Carbon::now();
         $log->save();
 
         return redirect("library/index");

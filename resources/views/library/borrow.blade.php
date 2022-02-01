@@ -15,7 +15,7 @@
                         <h4 class="title">Borrow book data</h4>
                     </div>
                     <div class="content">
-                        <form action="library/borrow" method="POST">
+                        <form action="{{url('borrow')}}" method="POST">
                             @csrf
                             <div class="author">
                                 {{ $library->name}}
@@ -32,7 +32,7 @@
                             </div>
                             <div class="clearfix"></div>
                         </form>
-                        <a href="library/index">戻る</a>
+                        <a href="{{url('library/index')}}">戻る</a>
                     </div>
                 </div>
             </div>

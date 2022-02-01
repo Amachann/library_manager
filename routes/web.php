@@ -22,3 +22,8 @@ Route::get("library/borrow", "libraryController@borrowingForm");
 Route::post("borrow", "libraryController@borrow");
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post("library/return", "libraryController@returnBook");
+Route::get("logout", function() {
+    Auth::logout();
+    redirect("library/index");
+});

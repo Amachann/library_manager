@@ -19,7 +19,7 @@
                         <h4 class="title">Library</h4>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                             <thead>
                                 <th>ID</th>
                                 <th>Title</th>

@@ -66,4 +66,12 @@ class LibraryController extends Controller
 
         return redirect("library/index");
     }
+
+    public function history()
+    {
+        $logs = Log::where("user_id", Auth::id())->get();
+        return view("library.borrowHistory", [
+            "logs" => $logs,
+            "user" => Auth::user()]);
+    }
 }

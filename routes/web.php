@@ -27,3 +27,4 @@ Route::get("logout", function() {
     Auth::logout();
     redirect("library/index");
 });
+Route::get("library/history", "libraryController@history");
